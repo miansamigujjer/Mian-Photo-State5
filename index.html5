@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mianphotostate - Professional Printing Services</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #4ecdc4;
+            --accent: #ffd166;
+            --dark: #1a535c;
+            --light: #f7fff7;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 83, 92, 0.8), rgba(26, 83, 92, 0.9)), url('https://images.unsplash.com/photo-1587334894325-5c05743113b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 0;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--dark);
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .service-content .price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .service-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .whatsapp-btn {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #128C7E;
+        }
+        
+        /* Examples Section */
+        .examples {
+            padding: 5rem 0;
+            background-color: #f9f9f9;
+        }
+        
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .example-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .example-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .example-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+            padding: 1rem;
+            font-weight: 600;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-content h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .contact h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-card p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .contact-link {
+            display: inline-block;
+            background: white;
+            color: var(--dark);
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            background: var(--accent);
+            transform: scale(1.05);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>Mianphotostate</h1>
+                <p>Professional Printing Services</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#examples">Examples</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>High Quality Printing Services</h2>
+            <p>We provide premium ID cards, passport photos, and document printing with exceptional clarity and vibrant colors.</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Printing Services</h2>
+                <p>Choose from our range of high-quality printing options</p>
+            </div>
+            <div class="services-grid">
+                <!-- Black Printing Service -->
+                <div class="service-card">
+                    <div class="service-img" style="background-color: #333; color: white;">
+                        Black Print
+                    </div>
+                    <div class="service-content">
+                        <h3>Black Printing</h3>
+                        <div class="price">Rs. 25</div>
+                        <p>High-quality black and white printing for all your document needs with exceptional clarity.</p>
+                        <a href="https://wa.me/03167646390?text=Hi, I'm interested in Black Printing service" class="whatsapp-btn">Contact on WhatsApp</a>
+                    </div>
+                </div>
+                
+                <!-- Colorful Printing Service -->
+                <div class="service-card">
+                    <div class="service-img" style="background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #ffd166);">
+                        Color Print
+                    </div>
+                    <div class="service-content">
+                        <h3>Colorful Printing</h3>
+                        <div class="price">Rs. 35</div>
+                        <p>Vibrant color printing that brings your documents and photos to life with brilliant hues.</p>
+                        <a href="https://wa.me/03167646390?text=Hi, I'm interested in Colorful Printing service" class="whatsapp-btn">Contact on WhatsApp</a>
+                    </div>
+                </div>
+                
+                <!-- Special Printing Service -->
+                <div class="service-card">
+                    <div class="service-img" style="background: linear-gradient(135deg, #1a535c, #4ecdc4); color: white;">
+                        Special Print
+                    </div>
+                    <div class="service-content">
+                        <h3>Special Printing</h3>
+                        <div class="price">Rs. 50</div>
+                        <p>Premium high-definition printing for important documents that require the utmost clarity.</p>
+                        <a href="https://wa.me/03167646390?text=Hi, I'm interested in Special Printing service" class="whatsapp-btn">Contact on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples Section -->
+    <section class="examples" id="examples">
+        <div class="container">
+            <div class="section-title">
+                <h2>Printing Examples</h2>
+                <p>See samples of our high-quality printing work</p>
+            </div>
+            
+            <div class="examples-grid">
+                <!-- Black Print Example -->
+                <div class="example-item">
+                    <div class="example-img" style="background: linear-gradient(45deg, #2c3e50, #34495e);">
+                        Black Print Example
+                    </div>
+                </div>
+                
+                <!-- Colorful Print Example -->
+                <div class="example-item">
+                    <div class="example-img" style="background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #ffd166);">
+                        Colorful Print Example
+                    </div>
+                </div>
+                
+                <!-- Special Print Example -->
+                <div class="example-item">
+                    <div class="example-img" style="background: linear-gradient(135deg, #1a535c, #4ecdc4);">
+                        Special Print Example
+                    </div>
+                </div>
+                
+                <!-- Premium Print Example -->
+                <div class="example-item">
+                    <div class="example-img" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                        Premium Print Example
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <h2>About Mianphotostate</h2>
+                <p>Welcome to Mianphotostate, your trusted printing service provider in Gujrat. We specialize in high-quality printing services including ID cards, passport photos, and various document printing.</p>
+                <p>With years of experience in the industry, we pride ourselves on delivering exceptional print quality with vibrant colors and crystal-clear black and white prints.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <strong>Owner:</strong> Mian Muavia
+                    </div>
+                    <div class="contact-item">
+                        <strong>Location:</strong> Zilla Gujrat, Tahseel Kharian, Dinga
+                    </div>
+                    <div class="contact-item">
+                        <strong>Phone:</strong> <a href="tel:03167646390" style="color: var(--dark);">0316-7646390</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Email:</strong> <a href="mailto:Mianphotostate@gmail.com" style="color: var(--dark);">Mianphotostate@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-grid">
+                <!-- Phone Contact -->
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Call Us</h3>
+                    <p>Get instant support and answers to your questions</p>
+                    <a href="tel:03167646390" class="contact-link">Call Now</a>
+                </div>
+                
+                <!-- WhatsApp Contact -->
+                <div class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <h3>WhatsApp</h3>
+                    <p>Chat with us for quick responses and file sharing</p>
+                    <a href="https://wa.me/03167646390" class="contact-link">Message on WhatsApp</a>
+                </div>
+                
+                <!-- Email Contact -->
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h3>Email Us</h3>
+                    <p>Send us your documents and requirements</p>
+                    <a href="mailto:Mianphotostate@gmail.com" class="contact-link">Send Email</a>
+                </div>
+                
+                <!-- Visit Shop -->
+                <div class="contact-card">
+                    <div class="contact-icon">🏪</div>
+                    <h3>Visit Shop</h3>
+                    <p>Come see our printing quality in person</p>
+                    <a href="https://maps.google.com/?q=Zilla+Gujrat+Tahseel+Kharian+Dinga" class="contact-link">Get Directions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Mianphotostate. All rights reserved.</p>
+            <p>Professional Printing Services - ID Cards, Passport Photos, Document Printing</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                window.scrollTo({
+               targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
